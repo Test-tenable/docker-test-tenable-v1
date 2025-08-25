@@ -4,7 +4,6 @@ push:
 branches:
 - main
 jobs:
-commit-and-push:
 runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
