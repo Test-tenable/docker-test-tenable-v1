@@ -1,3 +1,11 @@
+name: Commit and tenable scan
+on:
+push:
+branches:
+- main
+jobs:
+commit-and-push:
+runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - name: Scan container image with Tenable Cloud Security
