@@ -1,15 +1,17 @@
-name: Commit and tenable scan
+name: Container Scan
+
 on:
-push:
-branches:
-- main
+  push:
+    branches: [ main ]
+
 jobs:
-runs-on: ubuntu-latest
+  scan:
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-    - name: Scan container image with Tenable Cloud Security
-      uses: tenable/cloud-security-actions/container-image/scan@v1
-      with:
-        api-token: ${{ secrets.TENABLE_API_TOKEN }}
-        api-url: https://uk.app.ermetic.com
-        name: test-docker-self-github
+      - uses: actions/checkout@v3
+      - name: Scan container image with Tenable Cloud Security
+        uses: tenable/cloud-security-actions/container-image/scan@v1
+        with:
+          api-token: ${{ secrets.TENABLE_API_TOKEN }}
+          api-url: https://uk.app.ermetic.com
+          name: test-docker-self-github
